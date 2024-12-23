@@ -53,6 +53,9 @@ class Library{
         }
 
         book.isAvailable = false;
+        const dueDate = new Date();
+        dueDate.setDate(dueDate.getDate() + 7)
+        const loan = new Loan(this.title,dueDate,"5");
         console.log(`Book is issued to Member ID: ${memberId}`);
     }
 }
@@ -60,20 +63,11 @@ class Library{
 class Loan {
     #fine = 5;
 
-    constructor(borrowsBook, dueDate,memberID,fineAmount) {
+    constructor(borrowsBook, dueDate,fineAmount) {
         this.borrowsBook = borrowsBook;
         this.dueDate = dueDate;
         this.#fine = fineAmount;
-        this.memberID = memberID;
     }
-
-    // loanAmount() {
-    //     const currentDate = new Date();
-    //     const timeDiff = currentDate - this.dueDate;
-    //     const daysOverdue = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    //     console.log(this.#fines * daysOverdue)
-    // }
-
 
     setLoan(){
         // console.log("fine" + this.#fine);
@@ -88,6 +82,4 @@ library.addBook(new Book("The whisper of grave", "T.sharma", "12345"));
 library.registerMember(new Member("Hariom","26558", "Plus"));
 library.issueBook("The whisper of grave","26558");
 library.issueBook("The whisper of grave","26558");
-const loan = new Loan("The whisper of grave","3","26558","5");
-console.log(loan.setLoan());
 
