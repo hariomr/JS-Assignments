@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Background
+      ctx.fillStyle = "lightblue";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Shapes
+      ctx.fillStyle = "green";
+      ctx.fillRect(50, 50, 100, 100);
+      ctx.strokeStyle = "red";
+      ctx.strokeRect(200, 50, 100, 100);
+
+      // Text
+      ctx.font = "20px Arial";
+      ctx.fillStyle = "black";
+      ctx.fillText("Canvas Basics", 200, 200);
+
+      // Image
+      const img = new Image();
+      img.src = "example.jpg";
+      img.onload = () => {
+        ctx.drawImage(img, 150, 250, 100, 100);
+      };
+    </script>
+  </body>
+</html>
