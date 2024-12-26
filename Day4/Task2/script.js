@@ -26,19 +26,19 @@ function renderTodo() {
             todoList.appendChild(todoItem);
         });
     }
-    inputEle.value = ""; // Clear the input field after rendering
+    inputEle.value = ""; 
 }
 
 function deleteTodo(index) {
-    todos.splice(index, 1); // Remove the item from the array
-    renderTodo(); // Re-render the list
+    todos.splice(index, 1); 
+    renderTodo(); 
 }
 
 function addTodo() {
-    const todoText = inputEle.value.trim(); // Get the input value and trim whitespace
+    const todoText = inputEle.value.trim(); 
     if (todoText) {
-        todos.push(todoText); // Add the new todo to the array
-        renderTodo(); // Re-render the list
+        todos.push(todoText); 
+        renderTodo(); 
     }
 }
 
