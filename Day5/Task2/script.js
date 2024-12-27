@@ -5,13 +5,17 @@ const emailInput = document.getElementById("email");
 
 document.addEventListener("DOMContentLoaded",loadContent);
 
-function saveData(event) {
-    const formData = {
-        name: nameInput.value,
-        email: emailInput.value,
-      };
-      localStorage.setItem("formData", JSON.stringify(formData));
+let debounceTimer;
 
+function saveDataDebounced(event) {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    const formData = {
+      name: nameInput.value,
+      email: emailInput.value,
+    };
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, 300); 
 }
 
 function loadContent(){
@@ -22,6 +26,6 @@ function loadContent(){
     }
 }
 
-nameInput.addEventListener("input",saveData);
-emailInput.addEventListener("input",saveData);
+nameInput.addEventListener("input",saveDataDebounced);
+emailInput.addEventListener("input",saveDataDebounced);
 
