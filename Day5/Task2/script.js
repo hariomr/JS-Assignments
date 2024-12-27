@@ -5,8 +5,7 @@ const emailInput = document.getElementById("email");
 
 document.addEventListener("DOMContentLoaded",loadContent);
 
-function handleSubmit(event) {
-    event.preventDefault();
+function saveData(event) {
     const formData = {
         name: nameInput.value,
         email: emailInput.value,
@@ -22,4 +21,7 @@ function loadContent(){
       emailInput.value = savedData.email || "";
     }
 }
+
+nameInput.addEventListener("input",saveData);
+emailInput.addEventListener("input",saveData);
 
