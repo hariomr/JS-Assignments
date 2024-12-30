@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Api</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="weather">
+        <form onsubmit="submitHandler(event)" class="form">
+           <div class="input">
+            <label for="location" id="text">Enter your desired location</label>
+            <input type="text" id="location" placeholder="Enter Your Location">
+            <button type="submit">Find Weather</button>
+           </div>
+
+            <div id="weather-info"></div>
+        </form>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
